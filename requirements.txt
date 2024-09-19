@@ -1,0 +1,5 @@
+numpy==1.26.4
+SpeechRecognition==3.10.4
+spacy==3.7.4
+pyttsx4==3.0.15
+rapidfuzz==3.7.0
