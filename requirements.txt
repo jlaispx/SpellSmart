@@ -1,5 +1,8 @@
+pyaudio==0.2.14
 numpy==1.26.4
 SpeechRecognition==3.10.4
 spacy==3.7.4
 pyttsx4==3.0.15
 rapidfuzz==3.7.0
+pyinstaller
+pygame==2.6.0

@@ -3,7 +3,7 @@ from Person import Person
 from Words import Words
 from rapidfuzz import fuzz
 import pygame
-import time
+# from time import Clock, wait
 from Summary import Summary
 
 class SpellSmart:
@@ -124,9 +124,10 @@ class SpellSmart:
             attempts = 0
             correct = False
 
-            while  not (correct or quit):
+
+            while  not (correct or quit):  # LOOP FOR EACH WORD
                 # Get the correct spell
-                while run:
+                while run:                 # LOOP ENTER LETTERS / QUIT / ENTER
                     # GET INPUT FROM SCREEN
                     for event in pygame.event.get():
                         if event.type == pygame.QUIT:
@@ -162,6 +163,7 @@ class SpellSmart:
                                 self.teacher.say(key,False)
                     # self.drawScreen()
 
+                # OPTION = QUIT, CHECK SPELLING
                 if quit:
                     self.teacherSays(f"Oh dear {self.student.getName()}. You are quitting. ")
                     break
@@ -181,7 +183,7 @@ class SpellSmart:
                             comment = "O.M.G. Really!"
                         if confidence < 10:
                             comment = "Horrible. Horrible. Horrible. "
-                        self.teacherSays(f"{comment} {self.student.getName()}, you were {confidence}% correct. Try again.")
+                        self.teacherSays(f"{comment} {self.student.getName()}, you were {confidence:.2f}% correct. Try again.")
                         guess = ""
                         run = True
                     else:
@@ -193,7 +195,7 @@ class SpellSmart:
             word = self.words.getNextWord().upper()
             numWords += 1
 
-            if numWords >= self.maxWords:
+            if numWords > self.maxWords:
                 break
             if quit:
                 break
